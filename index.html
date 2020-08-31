@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{
+        width:  80px; 
+        height: 80px;
+        border:1px solid black;
+        text-align: center;
+        font-size: 30px;
+        background-color: aquamarine; 
+
+    }
+    td:hover{
+     background-color: brown;   
+    }
+    table{
+     margin: auto;   
+    }
+    input{
+        width: 330px;
+        margin: auto;
+        display: block;
+        font-size: 70px;
+         
+    
+        
+    }
+</style>
+<body>
+    <input type="text" id="myinput" oninput="test()" value="0"> 
+   <table>
+       <tr>
+           <td onclick="myfanction(9)">9</td>
+           <td onclick="myfanction(8)">8</td>
+           <td onclick="myfanction(7)">7</td>
+           <td onclick="myfanction(6)">6</td>
+       </tr>
+       <tr>
+           <td onclick="myfanction(5)">5</td>
+           <td onclick="myfanction(4)">4</td>
+           <td onclick="myfanction(3)">3</td>
+           <td onclick="myfanction(2)">2</td>
+       </tr>
+       <tr>
+           <td onclick="myfanction(1)">1</td>
+           <td onclick="myfanction(0)">0</td>
+           <td onclick="operation('+')">+</td>
+           <td onclick="operation('-')">-</td>
+       </tr>
+       <tr>
+           <td onclick="operation('/')">/</td>
+           <td onclick="operation('*')">*</td>
+           <td onclick="shave()">=</td>
+           <td onclick="clir()">c</td>
+       </tr>
+   </table>
+   <script>
+       function myfanction(x){
+           if(myinput.value=="0"){
+             myinput.value=x; 
+              
+           }
+           else{
+            
+            if(myinput.value.length<8) {
+                myinput.value+= x ;
+            }
+            else{
+              alert("to mach numbers")  
+            }
+
+           }
+
+        }
+        function clir(){
+          myinput.value="0" ; 
+        }
+        function operation(o){
+         op=o;
+         n1=myinput.value;
+        clir() ; 
+        }
+
+        function shave(){
+          
+          n2=myinput.value;
+          
+          switch (op) {
+              case '+':
+               myinput.value=parseFloat(n1)+parseFloat(n2); 
+                  break;
+             case '-':
+               myinput.value=parseFloat(n1)-parseFloat(n2);
+              break;
+              case '/':
+               myinput.value=parseFloat(n1)/parseFloat(n2);
+              break;
+              case '*':
+               myinput.value=parseFloat(n1)*parseFloat(n2);
+              break;
+              default:
+                  break;
+          } 
+        }
+
+        function test(){
+             if(myinput.value[0]=="0"){
+             myinput.value = myinput.value.substring(1);
+             }
+           
+          if(isNaN(myinput.value)) {
+            alert("number only!!!!");
+            clir();
+          }
+
+        }
+
+       
+         
+       
+   </script>
+</body>
+</html>
